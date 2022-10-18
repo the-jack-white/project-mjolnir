@@ -15,16 +15,17 @@ export async function getServerSideProps() {
   const response = await getEntry(service, range);
 
   const data = response.data.values;
+  const headings = data[0];
 
   console.log("DATA: ", data);
 
-  const mapped = DataMapper(data);
+  const mapped = await DataMapper(data, headings);
 
   console.log("MAPPED: ", mapped);
 
-  const post = mapped.map((post) => {
-    console.log("POST: ", post);
-  });
+  // const post = mapped.map((post) => {
+  //   console.log("POST: ", post);
+  // });
 
   return {
     props: {

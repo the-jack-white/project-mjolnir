@@ -5,8 +5,7 @@ const Home = () => {
 };
 
 export async function getServerSideProps() {
-  const range = "Settings";
-  // const ranges = ["Settings!A1:B1", "Settings!A4:B4"];
+  const range = "settings";
   const service = await InitApp();
   const response = await getEntry(service, range);
 
